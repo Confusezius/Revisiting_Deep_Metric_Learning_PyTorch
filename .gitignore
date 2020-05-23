@@ -1,0 +1,5 @@
+__pycache__
+*.pyc
+Training_Results
+wandb
+diva_main.py
