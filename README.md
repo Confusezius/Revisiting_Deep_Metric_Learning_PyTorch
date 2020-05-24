@@ -54,7 +54,7 @@ Make sure to also check out the following repo with a great plug-and-play implem
 
 ## Paper-related Information
 
-#### Reproduce results from our paper **-> Revisiting Training Strategies and Generalization Performance in Deep Metric Learning <-**
+#### Reproduce results from our paper **[Revisiting Training Strategies and Generalization Performance in Deep Metric Learning](https://arxiv.org/pdf/2002.08473.pdf)**
 
 * *ALL* standardized Runs that were used are available in `Revisit_Runs.sh`.
 * These runs are also logged in this public W&B repo: https://app.wandb.ai/confusezius/RevisitDML.
