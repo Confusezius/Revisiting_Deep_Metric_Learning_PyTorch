@@ -19,7 +19,7 @@ class Criterion(torch.nn.Module):
 
         self.name           = 'multisimilarity'
 
-    def forward(self, batch, labels):
+    def forward(self, batch, labels, **kwargs):
         similarity = batch.mm(batch.T)
 
         loss = []
