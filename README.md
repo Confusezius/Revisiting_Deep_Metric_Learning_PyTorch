@@ -9,6 +9,8 @@ This repository contains all code and implementations used in:
 Revisiting Training Strategies and Generalization Performance in Deep Metric Learning
 ```
 
+accepted to ICML 2020.
+
 **Link**: https://arxiv.org/abs/2002.08473
 
 The code is meant to serve as a research starting point in Deep Metric Learning.
