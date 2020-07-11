@@ -50,7 +50,7 @@ Make sure to also check out the following repo with a great plug-and-play implem
 
 ---
 
-**[All implemented methods and metrics are listed at the bottom!]()**
+**[All implemented methods and metrics are listed at the bottom!](## Implemented Methods)**
 
 ---
 
