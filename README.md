@@ -18,7 +18,7 @@ By implementing key baselines under a consistent setting and logging a vast set 
 
 It is set up in a modular way to allow for fast and detailed prototyping, but with key elements written in a way that allows the code to be directly copied into other pipelines. In addition, multiple training and test metrics are logged in W&B to allow for easy and large-scale evaluation.
 
-Finally, please find a public W&B repo with key runs performed in (1) here: https://app.wandb.ai/confusezius/RevisitDML.
+Finally, please find a public W&B repo with key runs performed in the paper here: https://app.wandb.ai/confusezius/RevisitDML.
 
 **Contact**: Karsten Roth, karsten.rh1@gmail.com  
 
