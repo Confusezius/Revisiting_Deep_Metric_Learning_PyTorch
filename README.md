@@ -50,7 +50,7 @@ Make sure to also check out the following repo with a great plug-and-play implem
 
 ---
 
-**[All implemented methods and metrics are listed at the bottom!](##-Implemented-Methods)**
+**[All implemented methods and metrics are listed at the bottom!](#-Implemented-Methods)**
 
 ---
 
@@ -196,7 +196,7 @@ Here some information on using W&B (highly encouraged!)
 
 ---
 
-## Implemented Methods
+# Implemented Methods
 
 For a detailed explanation of everything, please refer to the supplementary of our paper!
 
