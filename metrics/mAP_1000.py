@@ -7,7 +7,7 @@ import faiss
 class Metric():
     def __init__(self, **kwargs):
         self.requires = ['features', 'target_labels']
-        self.name     = 'mAP'
+        self.name     = 'mAP_1000'
 
     def __call__(self, target_labels, features):
         labels, freqs = np.unique(target_labels, return_counts=True)
