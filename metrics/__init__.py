@@ -1,5 +1,5 @@
 from metrics import e_recall, dists, rho_spectrum
-from metrics import nmi, f1, mAP
+from metrics import nmi, f1, mAP, mAP_c, mAP_1000
 import numpy as np
 import faiss
 import torch
@@ -15,6 +15,10 @@ def select(metricname, opt):
         return nmi.Metric()
     elif metricname=='mAP':
         return mAP.Metric()
+    elif metricname=='mAP_c':
+        return mAP_c.Metric()
+    elif metricname=='mAP_1000':
+        return mAP_1000.Metric()
     elif metricname=='f1':
         return f1.Metric()
     elif 'dists' in metricname:

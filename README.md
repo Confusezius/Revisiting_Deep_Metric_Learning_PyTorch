@@ -9,6 +9,8 @@ This repository contains all code and implementations used in:
 Revisiting Training Strategies and Generalization Performance in Deep Metric Learning
 ```
 
+accepted to **ICML 2020**.
+
 **Link**: https://arxiv.org/abs/2002.08473
 
 The code is meant to serve as a research starting point in Deep Metric Learning.
@@ -16,7 +18,7 @@ By implementing key baselines under a consistent setting and logging a vast set 
 
 It is set up in a modular way to allow for fast and detailed prototyping, but with key elements written in a way that allows the code to be directly copied into other pipelines. In addition, multiple training and test metrics are logged in W&B to allow for easy and large-scale evaluation.
 
-Finally, please find a public W&B repo with key runs performed in (1) here: https://app.wandb.ai/confusezius/RevisitDML.
+Finally, please find a public W&B repo with key runs performed in the paper here: https://app.wandb.ai/confusezius/RevisitDML.
 
 **Contact**: Karsten Roth, karsten.rh1@gmail.com  
 
@@ -48,7 +50,7 @@ Make sure to also check out the following repo with a great plug-and-play implem
 
 ---
 
-**[All implemented methods and metrics are listed at the bottom!]()**
+**[All implemented methods and metrics are listed at the bottom!](#-implemented-methods)**
 
 ---
 
@@ -194,7 +196,7 @@ Here some information on using W&B (highly encouraged!)
 
 ---
 
-## Implemented Methods
+# Implemented Methods
 
 For a detailed explanation of everything, please refer to the supplementary of our paper!
 
