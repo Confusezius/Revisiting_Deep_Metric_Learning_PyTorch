@@ -157,7 +157,7 @@ The purpose of each flag explained:
 * `--evaluate_on_gpu`: If set, all metrics are computed using the gpu - requires Faiss-GPU and may need additional GPU memory.
 
 #### Some Notes:
-* During training, metrics listed in `--evaluation_metrics` will be logged for both training and validation/test set. If you do not care about detailed training metric logging, simply set the flag `--no_train_metrics`. A checkpoint is saved for improvements in metrics listed in `--storage_metrics` on training, validation or test sets.
+* During training, metrics listed in `--evaluation_metrics` will be logged for both training and validation/test set. If you do not care about detailed training metric logging, simply set the flag `--no_train_metrics`. A checkpoint is saved for improvements in metrics listed in `--storage_metrics` on training, validation or test sets. Detailed information regarding the available metrics can be found at the bottom of this `README`.
 * If one wishes to use a training/validation split, simply set `--use_tv_split` and `--tv_split_perc <train/val split percentage>`.
 
 
@@ -202,40 +202,42 @@ For a detailed explanation of everything, please refer to the supplementary of o
 
 ### DML criteria
 
-* **Angular** [[Deep Metric Learning with Angular Loss](https://arxiv.org/pdf/1708.01682.pdf)]
-* **ArcFace** [[ArcFace: Additive Angular Margin Loss for Deep Face Recognition](https://arxiv.org/pdf/1801.07698.pdf)]
-* **Contrastive** [[Dimensionality Reduction by Learning an Invariant Mapping](http://yann.lecun.com/exdb/publis/pdf/hadsell-chopra-lecun-06.pdf)]
-* **Generalized Lifted Structure** [[In Defense of the Triplet Loss for Person Re-Identification](https://arxiv.org/abs/1703.07737)]
-* **Histogram** [[Learning Deep Embeddings with Histogram Loss](https://arxiv.org/pdf/1611.00822.pdf)]
-* **Marginloss** [[Sampling Matters in Deep Embeddings Learning](https://arxiv.org/abs/1706.07567)]
-* **MultiSimilarity** [[Multi-Similarity Loss with General Pair Weighting for Deep Metric Learning](https://arxiv.org/abs/1904.06627)]
-* **N-Pair** [[Improved Deep Metric Learning with Multi-class N-pair Loss Objective](https://papers.nips.cc/paper/6200-improved-deep-metric-learning-with-multi-class-n-pair-loss-objective)]
-* **ProxyNCA** [[No Fuss Distance Metric Learning using Proxies](https://arxiv.org/pdf/1703.07464.pdf)]
-* **Quadruplet** [[Beyond triplet loss: a deep quadruplet network for person re-identification](https://arxiv.org/abs/1704.01719)]
-* **Signal-to-Noise Ratio (SNR)** [[Signal-to-Noise Ratio: A Robust Distance Metric for Deep Metric Learning](https://arxiv.org/pdf/1904.02616.pdf)]
-* **SoftTriple** [[SoftTriple Loss: Deep Metric Learning Without Triplet Sampling](https://arxiv.org/abs/1909.05235)]
-* **Normalized Softmax** [[Classification is a Strong Baseline for Deep Metric Learning](https://arxiv.org/abs/1811.12649)]
-* **Triplet** [[Facenet: A unified embedding for face recognition and clustering](https://arxiv.org/abs/1503.03832)]
+* **Angular** [[Deep Metric Learning with Angular Loss](https://arxiv.org/pdf/1708.01682.pdf)] `--loss angular`
+* **ArcFace** [[ArcFace: Additive Angular Margin Loss for Deep Face Recognition](https://arxiv.org/pdf/1801.07698.pdf)] `--loss arcface`
+* **Contrastive** [[Dimensionality Reduction by Learning an Invariant Mapping](http://yann.lecun.com/exdb/publis/pdf/hadsell-chopra-lecun-06.pdf)] `--loss contrastive`
+* **Generalized Lifted Structure** [[In Defense of the Triplet Loss for Person Re-Identification](https://arxiv.org/abs/1703.07737)] `--loss lifted`
+* **Histogram** [[Learning Deep Embeddings with Histogram Loss](https://arxiv.org/pdf/1611.00822.pdf)] `--loss histogram`
+* **Marginloss** [[Sampling Matters in Deep Embeddings Learning](https://arxiv.org/abs/1706.07567)] `--loss margin`
+* **MultiSimilarity** [[Multi-Similarity Loss with General Pair Weighting for Deep Metric Learning](https://arxiv.org/abs/1904.06627)] `--loss multisimilarity`
+* **N-Pair** [[Improved Deep Metric Learning with Multi-class N-pair Loss Objective](https://papers.nips.cc/paper/6200-improved-deep-metric-learning-with-multi-class-n-pair-loss-objective)] `--loss npair`
+* **ProxyNCA** [[No Fuss Distance Metric Learning using Proxies](https://arxiv.org/pdf/1703.07464.pdf)] `--loss proxynca`
+* **Quadruplet** [[Beyond triplet loss: a deep quadruplet network for person re-identification](https://arxiv.org/abs/1704.01719)] `--loss quadruplet`
+* **Signal-to-Noise Ratio (SNR)** [[Signal-to-Noise Ratio: A Robust Distance Metric for Deep Metric Learning](https://arxiv.org/pdf/1904.02616.pdf)] `--loss snr`
+* **SoftTriple** [[SoftTriple Loss: Deep Metric Learning Without Triplet Sampling](https://arxiv.org/abs/1909.05235)] `--loss softtriplet`
+* **Normalized Softmax** [[Classification is a Strong Baseline for Deep Metric Learning](https://arxiv.org/abs/1811.12649)] `--loss softmax`
+* **Triplet** [[Facenet: A unified embedding for face recognition and clustering](https://arxiv.org/abs/1503.03832)] `--loss triplet`
 
 ### DML batchminer
 
-* **Random** [[Facenet: A unified embedding for face recognition and clustering](https://arxiv.org/abs/1503.03832)]
-* **Semihard** [[Facenet: A unified embedding for face recognition and clustering](https://arxiv.org/abs/1503.03832)]
-* **Softhard** [https://github.com/Confusezius/Deep-Metric-Learning-Baselines]
-* **Distance-based** [[Sampling Matters in Deep Embeddings Learning](https://arxiv.org/abs/1706.07567)]
-* **Rho-Distance** [[Revisiting Training Strategies and Generalization Performance in Deep Metric Learning](https://arxiv.org/abs/2002.08473)]
-* **Parametric** [[PADS: Policy-Adapted Sampling for Visual Similarity Learning](https://arxiv.org/abs/2003.11113)]
+* **Random** [[Facenet: A unified embedding for face recognition and clustering](https://arxiv.org/abs/1503.03832)] `--batch_mining random`
+* **Semihard** [[Facenet: A unified embedding for face recognition and clustering](https://arxiv.org/abs/1503.03832)] `--batch_mining semihard`
+* **Softhard** [https://github.com/Confusezius/Deep-Metric-Learning-Baselines] `--batch_mining softhard`
+* **Distance-based** [[Sampling Matters in Deep Embeddings Learning](https://arxiv.org/abs/1706.07567)] `--batch_mining distance`
+* **Rho-Distance** [[Revisiting Training Strategies and Generalization Performance in Deep Metric Learning](https://arxiv.org/abs/2002.08473)] `--batch_mining rho_distance`
+* **Parametric** [[PADS: Policy-Adapted Sampling for Visual Similarity Learning](https://arxiv.org/abs/2003.11113)] `--batch_mining parametric`
 
 ### Architectures
 
-* **ResNet50** [[Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)]
-* **Inception-BN** [[Going Deeper with Convolutions](https://arxiv.org/abs/1409.4842)]
-* **GoogLeNet** (torchvision variant w/ BN) [[Going Deeper with Convolutions](https://arxiv.org/abs/1409.4842)]
+* **ResNet50** [[Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)] e.g. `--arch resnet50_frozen_normalize`.
+* **Inception-BN** [[Going Deeper with Convolutions](https://arxiv.org/abs/1409.4842)] e.g. `--arch bninception_normalize_frozen`.
+* **GoogLeNet** (torchvision variant w/ BN) [[Going Deeper with Convolutions](https://arxiv.org/abs/1409.4842)] e.g. `--arch googlenet`.
 
 ### Datasets
-* **CUB200-2011** [[Caltech-UCSD Birds-200-2011](http://www.vision.caltech.edu/visipedia/CUB-200-2011.html)]
-* **CARS196** [[Cars Dataset](https://ai.stanford.edu/~jkrause/cars/car_dataset.html)]
-* **Stanford Online Products** [[Deep Metric Learning via Lifted Structured Feature Embedding](https://cvgl.stanford.edu/projects/lifted_struct/)]
+* **CUB200-2011** [[Caltech-UCSD Birds-200-2011](http://www.vision.caltech.edu/visipedia/CUB-200-2011.html)]  `--dataset cub200`.
+* **CARS196** [[Cars Dataset](https://ai.stanford.edu/~jkrause/cars/car_dataset.html)] `--dataset cars196`.
+* **Stanford Online Products** [[Deep Metric Learning via Lifted Structured Feature Embedding](https://cvgl.stanford.edu/projects/lifted_struct/)] `--dataset online_products`.
+
+
 
 ### Evaluation Metrics
 
