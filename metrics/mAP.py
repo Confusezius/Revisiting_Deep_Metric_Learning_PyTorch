@@ -14,6 +14,10 @@ class Metric():
         R             = len(features)
 
         faiss_search_index  = faiss.IndexFlatL2(features.shape[-1])
+        if isinstance(features, torch.Tensor):
+            features = features.detach().cpu().numpy()
+            res = faiss.StandardGpuResources()
+            faiss_search_index = faiss.index_cpu_to_gpu(res, 0, faiss_search_index)        
         faiss_search_index.add(features)
         nearest_neighbours  = faiss_search_index.search(features, int(R+1))[1][:,1:]
 
