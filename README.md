@@ -239,11 +239,11 @@ For a detailed explanation of everything, please refer to the supplementary of o
 
 ### Evaluation Metrics
 
-* **Recall@k**
-* **Normalized Mutual Information (NMI)**
-* **F1**
-* **mAP (class-averaged)**
-* **Spectral Variance**
-* **Mean Intraclass Distance**
-* **Mean Interclass Distance**
-* **Ratio Intra- to Interclass Distance**
+* **Recall@k**: Include R@1 e.g. with `e_recall@1` into the list of evaluation metrics `--evaluation_metrics`.
+* **Normalized Mutual Information (NMI)**: Include with `nmi`.
+* **F1**: include with `nmi`.
+* **mAP (class-averaged)**: Include standard mAP at Recall with `mAP_lim`. You may also include `mAP_1000` for mAP limited to Recall@1000, and `mAP_c` limited to mAP at Recall@Max_Num_Samples_Per_Class. Note that all of these are heavily correlated.
+* **Spectral Variance**: This metric refers to the spectral decay metric used in our ICML paper. Include it with `rho_spectrum@1`. To exclude the `k` largest spectral values for a more robust estimate, simply include `rho_spectrum@k+1`. Adding `rho_spectrum@0` logs the whole singular value distribution, and `rho_spectrum@-1` computes KL(q,p) instead of KL(p,q).
+* **Mean Intraclass Distance**: Include the mean intraclass distance via `dists@intra`.
+* **Mean Interclass Distance**: Include the mean interlcass distance via `dists@inter`.
+* **Ratio Intra- to Interclass Distance**: Include the ratio of distances via `dists@intra_over_inter`.
