@@ -240,11 +240,19 @@ For a detailed explanation of everything, please refer to the supplementary of o
 
 
 ### Evaluation Metrics
-
+**Metrics based on Euclidean Distances**
 * **Recall@k**: Include R@1 e.g. with `e_recall@1` into the list of evaluation metrics `--evaluation_metrics`.
 * **Normalized Mutual Information (NMI)**: Include with `nmi`.
-* **F1**: include with `nmi`.
+* **F1**: include with `f1`.
 * **mAP (class-averaged)**: Include standard mAP at Recall with `mAP_lim`. You may also include `mAP_1000` for mAP limited to Recall@1000, and `mAP_c` limited to mAP at Recall@Max_Num_Samples_Per_Class. Note that all of these are heavily correlated.
+
+**Metrics based on Cosine Similarities** *(not included by default)*
+* **Cosine Recall@k**: Cosine-Similarity variant of Recall@k. Include with `c_recall@k` in `--evaluation_metrics`.
+* **Cosine Normalized Mutual Information (NMI)**: Include with `c_nmi`.
+* **Cosine F1**: include with `c_f1`.
+* **Cosine mAP (class-averaged)**: Include cosine similarity mAP at Recall variants with `c_mAP_lim`. You may also include `c_mAP_1000` for mAP limited to Recall@1000, and `c_mAP_c` limited to mAP at Recall@Max_Num_Samples_Per_Class.
+
+**Embedding Space Metrics**
 * **Spectral Variance**: This metric refers to the spectral decay metric used in our ICML paper. Include it with `rho_spectrum@1`. To exclude the `k` largest spectral values for a more robust estimate, simply include `rho_spectrum@k+1`. Adding `rho_spectrum@0` logs the whole singular value distribution, and `rho_spectrum@-1` computes KL(q,p) instead of KL(p,q).
 * **Mean Intraclass Distance**: Include the mean intraclass distance via `dists@intra`.
 * **Mean Interclass Distance**: Include the mean interlcass distance via `dists@inter`.
