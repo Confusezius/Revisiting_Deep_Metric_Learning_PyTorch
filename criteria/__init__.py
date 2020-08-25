@@ -4,7 +4,7 @@ from criteria import lifted, contrastive, softmax
 from criteria import angular, snr, histogram, arcface
 from criteria import softtriplet, multisimilarity, quadruplet
 ### Non-Standard Criteria
-from criteria import moco, adversarial_separation, fast_moco, invariant_spread, dc, imrot
+from criteria import adversarial_separation
 ### Basic Libs
 import copy
 
@@ -26,12 +26,7 @@ def select(loss, opt, to_optim, batchminer=None):
               'softtriplet':softtriplet,
               'arcface':arcface,
               'quadruplet':quadruplet,
-              'adversarial_separation':adversarial_separation,
-              'moco': moco,
-              'dc':dc,
-              'imrot':imrot,
-              'fast_moco':fast_moco,
-              'invariantspread':invariant_spread}
+              'adversarial_separation':adversarial_separation}
 
 
     if loss not in losses: raise NotImplementedError('Loss {} not implemented!'.format(loss))

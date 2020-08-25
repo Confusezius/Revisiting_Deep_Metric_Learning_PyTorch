@@ -1,4 +1,4 @@
-from batchminer import random_distance, diva_shared_distance_apn, diva_shared_distance_an, intra_random
+from batchminer import random_distance, intra_random
 from batchminer import lifted, rho_distance, softhard, npair, parametric, random, semihard, distance
 
 BATCHMINING_METHODS = {'random':random,
@@ -10,9 +10,7 @@ BATCHMINING_METHODS = {'random':random,
                        'parametric':parametric,
                        'lifted':lifted,
                        'random_distance': random_distance,
-                       'intra_random': intra_random,
-                       'shared_full_distance': diva_shared_distance_apn,
-                       'shared_neg_distance':  diva_shared_distance_an}
+                       'intra_random': intra_random}
 
 
 def select(batchminername, opt):

@@ -1,3 +1,6 @@
+python main.py --kernels 6 --source /home/karsten_dl/Dropbox/Projects/Datasets --n_epochs 150 --seed 0 --gpu 1 --bs 112 --samples_per_class 2 --loss npair --batch_mining npair --arch resnet50_frozen
+
+
 """============= Baseline Runs --- CUB200-2011 ===================="""
 python main.py --kernels 6 --source $datapath --n_epochs 150 --log_online --project RevisitDML --group CUB_Npair --seed 0 --gpu 0 --bs 112 --samples_per_class 2 --loss npair --batch_mining npair --arch resnet50_frozen
 python main.py --kernels 6 --source $datapath --n_epochs 150 --log_online --project RevisitDML --group CUB_Npair --seed 1 --gpu 0 --bs 112 --samples_per_class 2 --loss npair --batch_mining npair --arch resnet50_frozen
