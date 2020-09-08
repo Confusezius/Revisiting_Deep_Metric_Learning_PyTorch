@@ -18,11 +18,6 @@ class Criterion(torch.nn.Module):
         super(Criterion, self).__init__()
 
         ####
-        self.ALLOWED_MINING_OPS  = ALLOWED_MINING_OPS
-        self.REQUIRES_BATCHMINER = REQUIRES_BATCHMINER
-        self.REQUIRES_OPTIM      = REQUIRES_OPTIM
-
-        ####
         self.num_proxies        = opt.n_classes
         self.embed_dim          = opt.embed_dim
 
@@ -33,6 +28,13 @@ class Criterion(torch.nn.Module):
 
         self.optim_dict_list = [{'params':self.proxies, 'lr':opt.lr * opt.loss_proxynca_lrmulti}]
 
+
+        ####
+        self.ALLOWED_MINING_OPS  = ALLOWED_MINING_OPS
+        self.REQUIRES_BATCHMINER = REQUIRES_BATCHMINER
+        self.REQUIRES_OPTIM      = REQUIRES_OPTIM
+
+        
 
     def forward(self, batch, labels, **kwargs):
         #Empirically, multiplying the embeddings during the computation of the loss seem to allow for more stable training;

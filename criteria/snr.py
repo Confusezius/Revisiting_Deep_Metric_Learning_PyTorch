@@ -24,6 +24,8 @@ class Criterion(torch.nn.Module):
         self.REQUIRES_BATCHMINER = REQUIRES_BATCHMINER
         self.REQUIRES_OPTIM      = REQUIRES_OPTIM
 
+
+
     def forward(self, batch, labels, **kwargs):
         sampled_triplets = self.batchminer(batch, labels)
         anchors   = [triplet[0] for triplet in sampled_triplets]

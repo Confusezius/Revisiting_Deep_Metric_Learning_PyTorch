@@ -21,11 +21,6 @@ class Criterion(torch.nn.Module):
         super().__init__()
 
         ####
-        self.ALLOWED_MINING_OPS  = ALLOWED_MINING_OPS
-        self.REQUIRES_BATCHMINER = REQUIRES_BATCHMINER
-        self.REQUIRES_OPTIM      = REQUIRES_OPTIM
-
-        ####        
         self.embed_dim  = opt.embed_dim
         self.proj_dim   = opt.diva_decorrnet_dim
 
@@ -42,6 +37,14 @@ class Criterion(torch.nn.Module):
         #Learning Rate for Projection Network
         self.lr        = opt.diva_decorrnet_lr
 
+
+        ####
+        self.ALLOWED_MINING_OPS  = ALLOWED_MINING_OPS
+        self.REQUIRES_BATCHMINER = REQUIRES_BATCHMINER
+        self.REQUIRES_OPTIM      = REQUIRES_OPTIM
+
+
+        
 
     def forward(self, feature_dict):
         #Apply gradient reversal on input embeddings.

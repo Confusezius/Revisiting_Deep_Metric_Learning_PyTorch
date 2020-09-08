@@ -14,11 +14,6 @@ class Criterion(torch.nn.Module):
         self.par = opt
 
         ####
-        self.ALLOWED_MINING_OPS  = ALLOWED_MINING_OPS
-        self.REQUIRES_BATCHMINER = REQUIRES_BATCHMINER
-        self.REQUIRES_OPTIM      = REQUIRES_OPTIM
-
-        ####
         self.angular_margin = opt.loss_arcface_angular_margin
         self.feature_scale  = opt.loss_arcface_feature_scale
 
@@ -29,6 +24,14 @@ class Criterion(torch.nn.Module):
         self.name  = 'arcface'
 
         self.lr    = opt.loss_arcface_lr
+
+        ####
+        self.ALLOWED_MINING_OPS  = ALLOWED_MINING_OPS
+        self.REQUIRES_BATCHMINER = REQUIRES_BATCHMINER
+        self.REQUIRES_OPTIM      = REQUIRES_OPTIM
+
+
+
 
     def forward(self, batch, labels, **kwargs):
         bs, labels = len(batch), labels.to(self.par.device)

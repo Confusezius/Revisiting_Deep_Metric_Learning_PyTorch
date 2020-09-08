@@ -24,6 +24,8 @@ class Criterion(torch.nn.Module):
         self.REQUIRES_BATCHMINER = REQUIRES_BATCHMINER
         self.REQUIRES_OPTIM      = REQUIRES_OPTIM
 
+        
+
     def forward(self, batch, labels, **kwargs):
         ####NOTE: Normalize Angular Loss, but dont normalize npair loss!
         anchors, positives, negatives = self.batchminer(batch, labels)

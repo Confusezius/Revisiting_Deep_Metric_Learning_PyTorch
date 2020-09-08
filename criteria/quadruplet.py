@@ -22,6 +22,8 @@ class Criterion(torch.nn.Module):
         self.REQUIRES_BATCHMINER = REQUIRES_BATCHMINER
         self.REQUIRES_OPTIM      = REQUIRES_OPTIM
 
+
+
     def triplet_distance(self, anchor, positive, negative):
         return torch.nn.functional.relu(torch.norm(anchor-positive, p=2, dim=-1)-torch.norm(anchor-negative, p=2, dim=-1)+self.margin_alpha_1)
 

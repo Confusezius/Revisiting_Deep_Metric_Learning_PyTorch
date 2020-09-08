@@ -19,6 +19,12 @@ class Criterion(torch.nn.Module):
 
         self.name           = 'multisimilarity'
 
+        ####
+        self.ALLOWED_MINING_OPS  = ALLOWED_MINING_OPS
+        self.REQUIRES_BATCHMINER = REQUIRES_BATCHMINER
+        self.REQUIRES_OPTIM      = REQUIRES_OPTIM
+
+
     def forward(self, batch, labels, **kwargs):
         similarity = batch.mm(batch.T)
 
