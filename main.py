@@ -40,18 +40,11 @@ if opt.savename=='group_plus_seed':
 
 ### If wandb-logging is turned on, initialize the wandb-run here:
 if opt.log_online:
-    if opt.online_backend=='comet_ml':
-        from comet_ml import Experiment
-        experiment = Experiment(api_key=opt.comet_api_key, project_name=opt.project, auto_metric_logging=False)
-        experiment.set_name(opt.savename)
-        experiment.log_parameters(copy.deepcopy(vars(opt)))
-        opt.experiment = experiment
-    elif opt.online_backend=='wandb':
-        import wandb
-        _ = os.system('wandb login {}'.format(opt.wandb_key))
-        os.environ['WANDB_API_KEY'] = opt.wandb_key
-        wandb.init(project=opt.project, group=opt.group, name=opt.savename, dir=opt.save_path)
-        wandb.config.update(opt)
+    import wandb
+    _ = os.system('wandb login {}'.format(opt.wandb_key))
+    os.environ['WANDB_API_KEY'] = opt.wandb_key
+    wandb.init(project=opt.project, group=opt.group, name=opt.savename, dir=opt.save_path)
+    wandb.config.update(opt)
 
 
 
