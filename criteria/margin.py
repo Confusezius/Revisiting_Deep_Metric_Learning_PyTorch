@@ -66,7 +66,9 @@ class Criterion(torch.nn.Module):
             else:
                 loss = torch.sum(pos_loss+neg_loss)/pair_count
 
-            if self.nu: loss = loss + beta_regularisation_loss.to(torch.float).to(d_ap.device)
+            if self.nu: 
+                beta_regularization_loss = torch.sum(beta)
+                loss += self.nu * beta_regularisation_loss.to(torch.float).to(d_ap.device)
         else:
             loss = torch.tensor(0.).to(torch.float).to(batch.device)
 
