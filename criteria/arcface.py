@@ -40,7 +40,7 @@ class Criterion(torch.nn.Module):
         #Note that the similarity becomes the cosine for normalized embeddings. Denoted as 'fc7' in the paper pseudocode.
         cos_similarity = batch.mm(class_map.T).clamp(min=1e-10, max=1-1e-10)
 
-        pick = torch.zeros(bs, self.par.n_classes).byte().to(self.par.device)
+        pick = torch.zeros(bs, self.par.n_classes).bool().to(self.par.device)
         pick[torch.arange(bs), labels] = 1
 
         original_target_logit  = cos_similarity[pick]
@@ -48,7 +48,8 @@ class Criterion(torch.nn.Module):
         theta                 = torch.acos(original_target_logit)
         marginal_target_logit = torch.cos(theta + self.angular_margin)
 
-        class_pred = self.feature_scale * (cos_similarity + (marginal_target_logit-original_target_logit).unsqueeze(1))
+        class_pred = self.feature_scale * (cos_similarity + pick * (marginal_target_logit-original_target_logit).unsqueeze(1))
+        # class_pred = self.feature_scale * (cos_similarity + (marginal_target_logit-original_target_logit).unsqueeze(1))
         loss       = torch.nn.CrossEntropyLoss()(class_pred, labels)
 
         return loss
