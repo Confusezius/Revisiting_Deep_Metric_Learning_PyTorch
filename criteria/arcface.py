@@ -49,7 +49,6 @@ class Criterion(torch.nn.Module):
         marginal_target_logit = torch.cos(theta + self.angular_margin)
 
         class_pred = self.feature_scale * (cos_similarity + pick * (marginal_target_logit-original_target_logit).unsqueeze(1))
-        # class_pred = self.feature_scale * (cos_similarity + (marginal_target_logit-original_target_logit).unsqueeze(1))
         loss       = torch.nn.CrossEntropyLoss()(class_pred, labels)
 
         return loss
