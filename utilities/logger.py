@@ -166,16 +166,9 @@ class LOGGER():
                     online_content.append((name,per_seg_contents[i]))
 
         if self.log_online:
-            if self.prop.online_backend=='wandb':
-                import wandb
-                for i,item in enumerate(online_content):
-                    if isinstance(item[1], list):
-                        wandb.log({item[0]:np.mean(item[1])}, step=self.prop.epoch)
-                    else:
-                        wandb.log({item[0]:item[1]}, step=self.prop.epoch)
-            elif self.prop.online_backend=='comet_ml':
-                for i,item in enumerate(online_content):
-                    if isinstance(item[1], list):
-                        self.prop.experiment.log_metric(item[0],np.mean(item[1]), self.prop.epoch)
-                    else:
-                        self.prop.experiment.log_metric(item[0],item[1],self.prop.epoch)
+            import wandb
+            for i,item in enumerate(online_content):
+                if isinstance(item[1], list):
+                    wandb.log({item[0]:np.mean(item[1])}, step=self.prop.epoch)
+                else:
+                    wandb.log({item[0]:item[1]}, step=self.prop.epoch)
