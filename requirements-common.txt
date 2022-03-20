@@ -1,0 +1,13 @@
+faiss-gpu
+ipywidgets
+jupyter
+matplotlib
+notebook
+pandas
+pillow
+pretrainedmodels
+scikit-image
+scikit-learn
+scipy
+tqdm
+wandb
