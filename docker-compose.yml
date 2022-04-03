@@ -1,55 +1,12 @@
 version: "3.8"
 
 services:
-#  sea_ice-jupyter:
-#    image: sea_ice-jupyter
-#    container_name: $USER-sea_ice-jupyter
-#    user: docker
-#    working_dir: /home/docker/sea-ice
-#    command: [ "jupyter", "notebook", "--no-browser", "--ip", "0.0.0.0", "--port", "8000" ]
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#      args:
-#        USER_ID: $USER_ID
-#        GROUP_ID: $GROUP_ID
-#        CUDA_BASE: $CUDA_BASE
-#        CUDA_TORCH: $CUDA_TORCH
-#    ports:
-#      - "8000:8000"
-#    volumes:
-#      - type: bind
-#        source: $HOME/sea-ice/icelib
-#        target: /home/docker/sea-ice/icelib
-#      - type: bind
-#        source: $HOME/sea-ice/cryosat2
-#        target: /home/docker/sea-ice/cryosat2
-#      - type: bind
-#        source: $HOME/sea-ice/models
-#        target: /home/docker/sea-ice/models
-#      - type: bind
-#        source: $HOME/sea-ice/wandb
-#        target: /home/docker/sea-ice/wandb
-#    deploy:
-#      resources:
-#        reservations:
-#          devices:
-#            - driver: nvidia
-#              device_ids: [ "4" ]
-#              capabilities: [ gpu ]
-#        limits:
-#          memory: 64g
-#    cpuset: "64-79"
-#    security_opt:
-#      - label:disable
-#    shm_size: 16g
-
-  metric-learning:
-    image: metric-learning
+  metric_learning:
+    image: metric_learning
     container_name: $USER-metric_learning
     user: docker
     working_dir: /home/docker/metric-learning
-    command: [ "bash", "run.sh" ]
+    command: [ "bash" ]
     build:
       context: .
       dockerfile: Dockerfile
@@ -58,15 +15,19 @@ services:
         GROUP_ID: $GROUP_ID
         CUDA_BASE: $CUDA_BASE
         CUDA_TORCH: $CUDA_TORCH
-#    environment:
-#      - WANDB_API_KEY=$WANDB_API_KEY
-#      - WANDB_ENTITY=$WANDB_ENTITY
-#      - WANDB_PROJECT=$WANDB_PROJECT
-#      - WANDB_MODE=offline
+        PYTHON_VERSION: $PYTHON_VERSION
+    environment:
+      - WANDB_API_KEY=$WANDB_API_KEY
+      - WANDB_ENTITY=$WANDB_ENTITY
+      - WANDB_PROJECT=$WANDB_PROJECT
+      - WANDB_MODE=online
     volumes:
       - type: bind
-        source: $HOME/metric-learning/cars196
+        source: ./cars196
         target: /home/docker/metric-learning/cars196
+      - type: bind
+        source: ./runs
+        target: /home/docker/metric-learning/runs
     deploy:
       resources:
         reservations:
@@ -76,7 +37,7 @@ services:
               capabilities: [ gpu ]
         limits:
           memory: 64g
-    cpuset: "0-15"
+    cpuset: "30-39"
     security_opt:
       - label:disable
     shm_size: 16g

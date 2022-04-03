@@ -1,14 +1,14 @@
 # syntax = docker/dockerfile:experimental
 
+# Start from cuda image
 ARG CUDA_BASE
 FROM nvidia/cuda:$CUDA_BASE
 
-ARG PYTHON_VERSION=3.9
-ARG DEBIAN_FRONTEND=noninteractive
-
 # Install python
+ARG PYTHON_VERSION
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y software-properties-common && \
+    apt-get install --no-install-recommends -y software-properties-common unzip wget && \
     add-apt-repository -y ppa:deadsnakes/ppa && \
     apt-get update && \
     apt-get install --no-install-recommends -y \
@@ -39,5 +39,6 @@ RUN groupadd --gid $GROUP_ID docker && \
     adduser docker sudo && \
     echo "%sudo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-# Copy code
+# Copy project files
 COPY --chown=$USER_ID:$GROUP_ID . /home/docker/metric-learning
+RUN rm /home/docker/metric-learning/requirements-*.txt
