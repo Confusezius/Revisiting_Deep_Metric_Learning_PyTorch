@@ -166,7 +166,7 @@ class LOGGER():
                     online_content.append((name,per_seg_contents[i]))
 
         if self.log_online:
-            if self.prop.online_backend=='wandb':
+            if True:  # self.prop.online_backend=='wandb':
                 import wandb
                 for i,item in enumerate(online_content):
                     if isinstance(item[1], list):

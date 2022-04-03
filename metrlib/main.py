@@ -41,8 +41,8 @@ if opt.savename=='group_plus_seed':
 ### If wandb-logging is turned on, initialize the wandb-run here:
 if opt.log_online:
     import wandb
-    _ = os.system('wandb login {}'.format(opt.wandb_key))
-    os.environ['WANDB_API_KEY'] = opt.wandb_key
+    # _ = os.system('wandb login {}'.format(opt.wandb_key))
+    # os.environ['WANDB_API_KEY'] = opt.wandb_key
     wandb.init(project=opt.project, group=opt.group, name=opt.savename, dir=opt.save_path)
     wandb.config.update(opt)
 

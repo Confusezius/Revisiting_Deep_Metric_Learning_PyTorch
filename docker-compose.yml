@@ -36,8 +36,8 @@ services:
               device_ids: [ "0" ]
               capabilities: [ gpu ]
         limits:
-          memory: 64g
-    cpuset: "30-39"
+          memory: 128g
+    cpuset: "0-15"
     security_opt:
       - label:disable
     shm_size: 16g
