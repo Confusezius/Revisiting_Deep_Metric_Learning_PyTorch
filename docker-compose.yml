@@ -33,11 +33,11 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              device_ids: [ "0" ]
+              device_ids: [ "7" ]
               capabilities: [ gpu ]
         limits:
           memory: 128g
-    cpuset: "0-15"
+    cpuset: "224-255"
     security_opt:
       - label:disable
     shm_size: 16g

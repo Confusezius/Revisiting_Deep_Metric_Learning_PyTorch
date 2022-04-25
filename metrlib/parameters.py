@@ -134,6 +134,10 @@ def loss_specific_parameters(parser):
     parser.add_argument('--loss_arcface_lr',             default=0.0005,  type=float, help='Learning rate on class proxies.')
     parser.add_argument('--loss_arcface_angular_margin', default=0.5,     type=float, help='Angular margin in radians.')
     parser.add_argument('--loss_arcface_feature_scale',  default=16,      type=float, help='Inverse Temperature for NCA objective.')
+
+    ### Barlow Loss
+    parser.add_argument('--loss_barlow_lambda',     default=0.005,  type=float, help='Parameter between loss terms.')
+
     return parser
 
 

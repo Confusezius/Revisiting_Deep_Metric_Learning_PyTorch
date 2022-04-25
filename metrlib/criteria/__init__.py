@@ -5,6 +5,7 @@ from criteria import angular, snr, histogram, arcface
 from criteria import softtriplet, multisimilarity, quadruplet
 ### Non-Standard Criteria
 from criteria import adversarial_separation
+from criteria import barlow
 ### Basic Libs
 import copy
 
@@ -26,7 +27,8 @@ def select(loss, opt, to_optim, batchminer=None):
               'softtriplet':softtriplet,
               'arcface':arcface,
               'quadruplet':quadruplet,
-              'adversarial_separation':adversarial_separation}
+              'adversarial_separation':adversarial_separation,
+              'barlow': barlow}
 
 
     if loss not in losses: raise NotImplementedError('Loss {} not implemented!'.format(loss))
